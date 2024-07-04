@@ -1,0 +1,14 @@
+C:\Users\J O K E R\source\repos\Advance-C#\bin\Debug\net8.0\Advance-C#.exe
+C:\Users\J O K E R\source\repos\Advance-C#\bin\Debug\net8.0\Advance-C#.deps.json
+C:\Users\J O K E R\source\repos\Advance-C#\bin\Debug\net8.0\Advance-C#.runtimeconfig.json
+C:\Users\J O K E R\source\repos\Advance-C#\bin\Debug\net8.0\Advance-C#.dll
+C:\Users\J O K E R\source\repos\Advance-C#\bin\Debug\net8.0\Advance-C#.pdb
+C:\Users\J O K E R\source\repos\Advance-C#\obj\Debug\net8.0\Advance-C#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\J O K E R\source\repos\Advance-C#\obj\Debug\net8.0\Advance-C#.AssemblyInfoInputs.cache
+C:\Users\J O K E R\source\repos\Advance-C#\obj\Debug\net8.0\Advance-C#.AssemblyInfo.cs
+C:\Users\J O K E R\source\repos\Advance-C#\obj\Debug\net8.0\Advance-C#.csproj.CoreCompileInputs.cache
+C:\Users\J O K E R\source\repos\Advance-C#\obj\Debug\net8.0\Advance-C#.dll
+C:\Users\J O K E R\source\repos\Advance-C#\obj\Debug\net8.0\refint\Advance-C#.dll
+C:\Users\J O K E R\source\repos\Advance-C#\obj\Debug\net8.0\Advance-C#.pdb
+C:\Users\J O K E R\source\repos\Advance-C#\obj\Debug\net8.0\Advance-C#.genruntimeconfig.cache
+C:\Users\J O K E R\source\repos\Advance-C#\obj\Debug\net8.0\ref\Advance-C#.dll
