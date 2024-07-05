@@ -2,91 +2,43 @@
 
 
 
-
+class  Employee
+{
+    public string Name { get; set; }
+    public int BasicSalary { get; set; }
+    public int Deduction { get; set; }
+    public int Bonus { get; set; }
+}
 
 partial class Program
-{ 
-    delegate int CalculateDelegate(int n1, int n2);
+{
+    delegate bool ShouldCalculate(Employee employee);
     public static void Main(string[] args)
     {
-        int n1 = 10,n2=4;
-     
+        List<Employee> employees = new();
 
-        #region Use Delegate
-
-        #region  Multicasting delegate
-        Console.WriteLine("use multicasting delegate");
-            CalculateDelegate dlg = Add;
-            dlg += Subtract;
-            dlg += Divide;
-            CalculateWithDelegate(n1,n2,dlg);
-         Console.WriteLine("method is done");
-        #endregion
-
-        
-        CalculateWithDelegate(n1,n2,Add);
-        CalculateWithDelegate(n1,n2,Divide);
-
-        #region simple way to Use delegate method
-        Console.WriteLine("use simple way to use delegate"); 
-        //you can use lambda Expression
-        CalculateWithDelegate(n1,n2,(n1,n2) => n1 * n2);
-        // you can use anons delegate 
-        CalculateWithDelegate(n1, n2, delegate(int n1, int n2) { return n1 - n2; });
-        Console.WriteLine("method is done"); 
-        #endregion
-       
-        
-        static void CalculateWithDelegate(int n1,int n2,CalculateDelegate dlg)
+        for (int i = 0; i < 100; i++)
         {
-            int result = dlg(n1,n2);
-            Console.WriteLine(result);
+            employees.Add(new Employee
+            {
+                Name = $"Employee {i}",
+                BasicSalary = Random.Shared.Next(1000, 5000),
+                Deduction = Random.Shared.Next(0, 500),
+                Bonus = Random.Shared.Next(0, 800)
+            });
         }
-        #endregion
+        CalculateSalary(employees,e=>e.BasicSalary < 2000);
+    }
 
-        #region Without Delegate
-        Calculate(n1,n2,'+');
-        Calculate(n1,n2,'-');
-        Calculate(n1,n2,'*');
-        Calculate(n1,n2,'/');
-        static void Calculate(int n1,int n2,char op)
+     static void CalculateSalary(List<Employee> employees,ShouldCalculate predicate)
+    {
+        foreach (var employee in employees)
         {
-            int result = 0;
-            if (op == '+')
-                result=Add(n1: n1, n2: n2);
-            else if (op == '-')
-                result=  Subtract(n1, n2);
-            else if (op == '*')
-                result=  Multiply(n1, n2);
-            else
-                result=  Divide(n1, n2);
-    
-            Console.WriteLine(result);
-        }
-        #endregion
-        
-        static int Divide(int n1,int n2)
-        {
-            Console.WriteLine("Divide");
-            return n1/n2;
-        }
-        
-        static int Add(int n1,int n2)
-        {
-            Console.WriteLine("add");
-            return n1+n2;
-        }
-
-        static int Subtract(int n1,int n2)
-        {
-            Console.WriteLine("subtract");
-            return n1-n2;
-        }
-
-        static int Multiply(int n1,int n2)
-        {
-            Console.WriteLine("Multiply");
-            return n1*n2;
+            if (predicate(employee))
+            {
+                  var result = employee.BasicSalary + employee.Bonus - employee.Deduction;
+                  Console.WriteLine($"employee name :{employee.Name} and salary is : {result}");
+            }
         }
     }
 } 
