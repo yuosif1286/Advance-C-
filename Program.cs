@@ -1,45 +1,92 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-/*Console.WriteLine(CalculateFactory(5));
-Console.WriteLine(5*4*3*2*1);
-// recursion => this use with tree operation
-static int CalculateFactory(int number)
-{
-    if (number <= 1)
-        return number;
-    return number * CalculateFactory(number - 1);
-}*/
 
 
-// this will print tree of folder
-/*PrintDirectoryFileSystem(@"C:\Users\J O K E R\source\repos\Advance-C#",1);
-static void PrintDirectoryFileSystem(string dirPath,int level)
-{
-    foreach (var file in Directory.GetFiles(dirPath))
+
+
+partial class Program
+{ 
+    delegate int CalculateDelegate(int n1, int n2);
+    public static void Main(string[] args)
     {
-       Console.WriteLine($"{new string('-',level)}{new FileInfo(file).Name}"); 
+        int n1 = 10,n2=4;
+     
+
+        #region Use Delegate
+
+        #region  Multicasting delegate
+        Console.WriteLine("use multicasting delegate");
+            CalculateDelegate dlg = Add;
+            dlg += Subtract;
+            dlg += Divide;
+            CalculateWithDelegate(n1,n2,dlg);
+         Console.WriteLine("method is done");
+        #endregion
+
+        
+        CalculateWithDelegate(n1,n2,Add);
+        CalculateWithDelegate(n1,n2,Divide);
+
+        #region simple way to Use delegate method
+        Console.WriteLine("use simple way to use delegate"); 
+        //you can use lambda Expression
+        CalculateWithDelegate(n1,n2,(n1,n2) => n1 * n2);
+        // you can use anons delegate 
+        CalculateWithDelegate(n1, n2, delegate(int n1, int n2) { return n1 - n2; });
+        Console.WriteLine("method is done"); 
+        #endregion
+       
+        
+        static void CalculateWithDelegate(int n1,int n2,CalculateDelegate dlg)
+        {
+            int result = dlg(n1,n2);
+            Console.WriteLine(result);
+        }
+        #endregion
+
+        #region Without Delegate
+        Calculate(n1,n2,'+');
+        Calculate(n1,n2,'-');
+        Calculate(n1,n2,'*');
+        Calculate(n1,n2,'/');
+        static void Calculate(int n1,int n2,char op)
+        {
+            int result = 0;
+            if (op == '+')
+                result=Add(n1: n1, n2: n2);
+            else if (op == '-')
+                result=  Subtract(n1, n2);
+            else if (op == '*')
+                result=  Multiply(n1, n2);
+            else
+                result=  Divide(n1, n2);
+    
+            Console.WriteLine(result);
+        }
+        #endregion
+        
+        static int Divide(int n1,int n2)
+        {
+            Console.WriteLine("Divide");
+            return n1/n2;
+        }
+        
+        static int Add(int n1,int n2)
+        {
+            Console.WriteLine("add");
+            return n1+n2;
+        }
+
+        static int Subtract(int n1,int n2)
+        {
+            Console.WriteLine("subtract");
+            return n1-n2;
+        }
+
+        static int Multiply(int n1,int n2)
+        {
+            Console.WriteLine("Multiply");
+            return n1*n2;
+        }
     }
-
-    foreach (var dirName in Directory.GetDirectories(dirPath))
-    {
-        Console.WriteLine($"{new string('-',level)}{new FileInfo(dirName).Name}");  
-        PrintDirectoryFileSystem(dirName,level+1);
-    }
-}*/
-
-// print size of directory folder
-
-Console.WriteLine(CalculateDirectorySize(@"C:\Users\J O K E R\source\repos\Advance-C#"));
-static long CalculateDirectorySize(string dirPath)
-{
-    long size = 0;
-    foreach (var file in Directory.GetFiles(dirPath))
-        size += new FileInfo(file).Length; 
-
-    foreach (var dirName in Directory.GetDirectories(dirPath))
-    {
-        size += CalculateDirectorySize(dirName);
-    }
-
-    return size;
-}
+} 
