@@ -12,3 +12,4 @@ C:\Users\J O K E R\source\repos\Advance-C#\obj\Debug\net8.0\refint\Advance-C#.dl
 C:\Users\J O K E R\source\repos\Advance-C#\obj\Debug\net8.0\Advance-C#.pdb
 C:\Users\J O K E R\source\repos\Advance-C#\obj\Debug\net8.0\Advance-C#.genruntimeconfig.cache
 C:\Users\J O K E R\source\repos\Advance-C#\obj\Debug\net8.0\ref\Advance-C#.dll
+C:\Users\J O K E R\source\repos\Advance-C#\obj\Debug\net8.0\Advance-C#.sourcelink.json

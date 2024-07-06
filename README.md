@@ -1,51 +1,20 @@
-## Recursion
+## What is a Delegate in C#?
+A Delegate is a Type-Safe Function Pointer. It means the delegate holds the
+reference of a method or function and when we invoke the delegate, the method
+it refers to is going to be executed. The delegate signature and the method it
+points to must have the same signature. While creating the delegate instance,
+we need to pass the method as a parameter to the delegate constructor.  Again, 
+there are two types of Delegates in C#. They are as follows:
 
-###  i will explain the Recursion
+1. Single Cast Delegate: Delegate Refers to a single function or method.
+2. Multicast Delegate: Delegate Refers to multiple functions or methods.
 
-#### What is Recursion?
-The process in which a function calls itself
-directly or indirectly is called recursion
-and the corresponding function is called a
-recursive function. Using a recursive 
-algorithm, certain problems can be solved
-quite easily. Examples of such problems 
-are Towers of Hanoi (TOH),
-Inorder/Preorder/Postorder Tree Traversals,
-DFS of Graph, etc. A recursive function
-solves a particular problem by calling
-a copy of itself and solving smaller
-sub problems of the original problems.
-Many more recursive calls can be generated
-as and when required. 
-It is essential to know that we
-should provide a certain case in 
-order to terminate this recursion process.
-So we can say that every time the function 
-calls itself with a simpler version of the original problem.
+We have already discussed Singlecast Delegate in our previous article.
+Today, we are going to discuss Multicast Delegates in C#.
 
-Need of Recursion
-
-Recursion is an amazing technique with the help of which we
-can reduce the length of our code and make it easier
-to read and write. It has certain advantages over
-the iteration technique which will be discussed later.
-A task that can be defined with its similar subtask,
-recursion is one of the best solutions for it. For example;
-The Factorial of a number.
-
-Properties of Recursion:
-* Performing the same operations multiple times with different inputs.
-* In every step, we try smaller inputs to make the problem smaller.
-* Base condition is needed to stop the recursion otherwise infinite loop will occur
-
-Base function example
-#### factory
-```csharp
-int fact(int n)
-{
-    if (n < = 1) // base case
-        return 1;
-    else    
-        return n*fact(n-1);    
-}
-```
+## What is Multicast Delegate in C#?
+A Multicast Delegate in C# is a delegate that holds the references of more than
+one handler function. When we invoke the multicast delegate, then all the functions
+which are referenced by the delegate are going to be invoked.
+If you want to call multiple methods using a delegate then all the method
+signatures should be the same. 
